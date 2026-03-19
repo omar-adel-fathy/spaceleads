@@ -36,7 +36,7 @@ const Hero = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-[101px] pb-16"
     >
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
