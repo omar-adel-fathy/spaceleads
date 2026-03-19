@@ -1,0 +1,40 @@
+/* App-specific styles */
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom selection color */
+::selection {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: black;
+}
+
+/* Ensure proper stacking context */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fix for mobile viewport height */
+@supports (height: 100dvh) {
+  .min-h-screen {
+    min-height: 100dvh;
+  }
+}
+
+/* Radial gradient utility */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+/* Perspective for 3D transforms */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Preserve 3D for children */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
