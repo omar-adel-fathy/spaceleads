@@ -1,14 +1,11 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Youtube, Instagram, Twitter, Linkedin, Facebook, GraduationCap, ArrowUpRight } from 'lucide-react';
-import RollRevealButton from '../components/RollRevealButton';
+import { Youtube, Instagram, Twitter, Linkedin, ArrowUpRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const socialLinks = [
-  { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/belalgaberrr' },
-  { icon: GraduationCap, label: 'Skool', href: 'https://www.skool.com/@belalgaberrr' },
   { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/belalgaberrr' },
   { icon: Twitter, label: 'X', href: 'https://x.com/belalgaberrr' },
   { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/belalgaberrr' },
@@ -25,10 +22,7 @@ const Footer = () => {
     return () => ctx.revert();
   }, []);
 
-  const scrollToBookCall = () => {
-    const el = document.querySelector('#book-call');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
+
 
   return (
     <footer ref={footerRef} className="relative bg-white pt-24 pb-12 border-t border-black/[0.03] overflow-hidden">
@@ -36,7 +30,7 @@ const Footer = () => {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-red-500/5 blur-[120px] rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mb-24">
 
           {/* Brand Column */}
           <div className="space-y-8">
@@ -45,7 +39,7 @@ const Footer = () => {
               <span className="font-black text-3xl tracking-tighter uppercase text-red-500">Leads</span>
             </a>
             <p className="text-black/40 font-medium leading-relaxed max-w-xs">
-              The #1 YouTube Client Acquisition System for high-ticket agency owners and coaches. We help you dominate your market through cinematic authority.
+              The #1 YouTube Client Acquisition System for high-ticket business owners and coaches. We help you dominate your market through engineered long form youtube content
             </p>
             <div className="flex flex-wrap items-center gap-3">
               {socialLinks.map((social, index) => (
@@ -67,13 +61,19 @@ const Footer = () => {
           <div className="space-y-8">
             <h4 className="text-sm font-black uppercase tracking-[0.2em] text-black">Navigation</h4>
             <div className="flex flex-col gap-4">
-              {['Why YouTube', 'Portfolio', 'Process', 'Results', 'FAQ'].map((link) => (
+              {[
+                { label: 'Why YouTube', href: '#why-youtube' },
+                { label: 'Case Studies', href: '#portfolio' },
+                { label: 'Our Work', href: '#process' },
+                { label: 'Process', href: '#results' },
+                { label: 'FAQ', href: '#faq' },
+              ].map((link) => (
                 <a
-                  key={link}
-                  href={`#${link.toLowerCase().replace(' ', '-')}`}
+                  key={link.label}
+                  href={link.href}
                   className="text-black/40 font-bold hover:text-red-500 flex items-center gap-2 group/link transition-all"
                 >
-                  <span>{link}</span>
+                  <span>{link.label}</span>
                   <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-y-0 group-hover/link:translate-x-0 transition-all" />
                 </a>
               ))}
@@ -85,28 +85,16 @@ const Footer = () => {
             <h4 className="text-sm font-black uppercase tracking-[0.2em] text-black">Contact</h4>
             <div className="flex flex-col gap-4">
               <a
-                href="mailto:spaceleads.agency@gmail.com"
+                href="mailto:belal@spaceleads.org"
                 className="text-black/40 font-bold hover:text-red-500 transition-colors flex items-center gap-2 group/email"
               >
-                spaceleads.agency@gmail.com
+                belal@spaceleads.org
                 <ArrowUpRight className="w-3 h-3 opacity-0 group-hover/email:opacity-100 transition-all" />
               </a>
             </div>
           </div>
 
-          {/* CTA Column */}
-          <div className="space-y-8">
-            <h4 className="text-sm font-black uppercase tracking-[0.2em] text-black">Ready to Scale?</h4>
-            <p className="text-black/40 font-medium leading-relaxed text-sm">
-              Let's build your YouTube client acquisition system. Book a free strategy call today.
-            </p>
-            <RollRevealButton
-              defaultText="Book a Call"
-              hoverText="Let's Talk"
-              onClick={scrollToBookCall}
-              className="shadow-xl border border-black/[0.05]"
-            />
-          </div>
+
         </div>
 
         {/* Bottom Bar */}

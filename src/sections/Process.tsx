@@ -129,7 +129,7 @@ const Process = () => {
             Our <span className="text-red-500">Done-For-You</span> Process
           </h2>
           <p className="text-lg md:text-xl text-black/40 max-w-3xl mx-auto font-medium leading-relaxed">
-            We've distilled years of YouTube growth into a seamless 3-step engine that takes you from obscurity to market dominance.
+            We've distilled years of YouTube growth into a seamless 4-step engine that takes you from obscurity to market dominance.
           </p>
         </div>
 

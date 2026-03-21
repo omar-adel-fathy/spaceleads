@@ -46,6 +46,44 @@ const faqs: FAQItem[] = [
       'Every channel is different. Starting from scratch, most clients see traction within 90 days. Already have an audience? Results typically show up in the first month.',
   },
   {
+    question: "I'm already getting clients from other channels. Why YouTube?",
+    answer:
+      "You don’t need YouTube to replace what’s working. You need it to multiply it. While you’re closing deals, your videos are building trust, warming up cold leads, and pre-selling your offer. It compounds quietly in the background — and makes every other channel you run perform better.",
+  },
+  {
+    question: 'How much time will this take me?',
+    answer:
+      'Just 60–90 minutes a week. Or a single batch session once a month. We take care of scripting, editing, SEO, and publishing. You stay focused on running your business.',
+  },
+  {
+    question: 'How much does it cost?',
+    answer:
+      'Investment ranges from $1.8K/mo to $5K/mo based on what you need. The best way to find out what\'s right for you is to get on a call.',
+  },
+  {
+    question: "What if I'm starting from zero with no audience?",
+    answer:
+      "It doesn't matter. Some of our strongest results came from channels with under 500 subscribers. YouTube is search-based — you show up in front of buyers who are actively looking, not just people who already follow you.",
+  },
+  {
+    question: 'What happens when we start working together?',
+    answer: (
+      <ul className="space-y-1 list-none">
+        {[
+          'We hop on an onboarding call',
+          'You will fill in an onboarding form',
+          'We set up your WhatsApp group, Google Drive folder, and Notion dashboard',
+          'You get the first script in the first 2-3 days, ready to record',
+        ].map((item) => (
+          <li key={item} className="flex items-start gap-2">
+            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    ),
+  },
+  {
     question: 'How many videos will be created per month?',
     answer:
       '4 videos a month is where we start most clients — it\'s the sweet spot. Need more volume? We have packages for 6 and 8 videos a month, and we can scale beyond that if needed.',

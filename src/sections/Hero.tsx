@@ -124,16 +124,7 @@ const Hero = () => {
               in <span className="relative inline-block">
                 <span>90 Days</span>
                 <HandwrittenUnderline delay={1.5} />
-              </span> With Just <span className="relative inline-block">
-                <span>3 Hours</span>
-                <HandwrittenUnderline delay={1.8} />
-              </span> of Filming
-            </h1>
-          </div>
-          
-          <div className="overflow-hidden">
-            <h1 className="drop-text drop-text-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-black leading-[1.1] tracking-tight">
-              Per Month
+              </span>
             </h1>
           </div>
 

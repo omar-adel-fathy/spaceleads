@@ -80,7 +80,7 @@ const Testimonial = () => {
         {/* Section Heading */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 tracking-tight">
-            Client <span className="text-red-500">Love</span>
+            Why Clients <span className="text-red-500">Love Us</span>
           </h2>
           <p className="text-lg md:text-xl text-black/40 max-w-3xl mx-auto font-medium text-balance">
             Don't just take our word for it. Hear directly from the founders we've helped scale.
@@ -89,9 +89,8 @@ const Testimonial = () => {
 
         <div className="w-full">
           <div className="grid lg:grid-cols-2 gap-8">
-            {/* Main Text Testimonial 1 - Idriis */}
+            {/* Main Text Testimonial - Bella Case Study */}
             <div className="testimonial-card relative bg-[#FAFAFA] rounded-[2.5rem] p-8 md:p-10 xl:p-12 shadow-2xl border border-black/[0.03] overflow-hidden group">
-              {/* Subtle Background Text */}
               <div className="absolute top-0 right-0 p-8 select-none pointer-events-none opacity-[0.02]">
                 <Quote className="w-48 h-48 rotate-180" />
               </div>
@@ -99,13 +98,13 @@ const Testimonial = () => {
               <div className="relative z-10 text-center max-w-3xl mx-auto h-full flex flex-col">
                 <div className="flex items-center justify-center gap-1 mb-8">
                   {[1, 2, 3, 4, 5].map((s) => (
-                    <Star key={s} className="w-4 h-4 fill-red-500 text-red-500" />
+                    <Star key={`bella-${s}`} className="w-4 h-4 fill-red-500 text-red-500" />
                   ))}
                 </div>
 
                 <blockquote className="mb-10 flex-grow">
                   <p className="text-xl sm:text-2xl xl:text-3xl font-black text-black leading-tight tracking-tight max-w-[28ch] mx-auto group-hover:text-red-500 transition-colors duration-500">
-                    "In 30 days, one video brought us <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">16,000 views</span> and <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">20 warm calls</span> ready to buy."
+                    "How This Coach Booked <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">20 Calls</span> From YouTube in <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">14 Days</span> (Case Study)"
                   </p>
                 </blockquote>
 
@@ -115,7 +114,7 @@ const Testimonial = () => {
                     <p className="text-[10px] font-black uppercase tracking-[0.2em] text-red-500">CEO & Founder @ Zaad Institute</p>
                   </div>
                   <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-black/[0.05]">
-                    <LiteYouTube videoId="F1OCIakR9y0" title="Idriis Abu Haythami - Client Success" />
+                    <LiteYouTube videoId="TSrTVrUZw0U" title="Idriis Abu Haythami - Case Study" />
                   </div>
                 </div>
               </div>
@@ -148,6 +147,38 @@ const Testimonial = () => {
                   </div>
                   <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-black/[0.05]">
                     <LiteYouTube videoId="rwT_YDTrbpo" title="Zahra - Client Success" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Main Text Testimonial 1 - Idriis (Span both columns on large screens) */}
+            <div className="testimonial-card relative bg-[#FAFAFA] rounded-[2.5rem] p-8 md:p-10 xl:p-12 shadow-2xl border border-black/[0.03] overflow-hidden group lg:col-span-2 max-w-4xl mx-auto w-full">
+              {/* Subtle Background Text */}
+              <div className="absolute top-0 right-0 p-8 select-none pointer-events-none opacity-[0.02]">
+                <Quote className="w-48 h-48 rotate-180" />
+              </div>
+
+              <div className="relative z-10 text-center max-w-3xl mx-auto h-full flex flex-col">
+                <div className="flex items-center justify-center gap-1 mb-8">
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <Star key={`idress-${s}`} className="w-4 h-4 fill-red-500 text-red-500" />
+                  ))}
+                </div>
+
+                <blockquote className="mb-10 flex-grow">
+                  <p className="text-xl sm:text-2xl xl:text-3xl font-black text-black leading-tight tracking-tight max-w-[28ch] mx-auto group-hover:text-red-500 transition-colors duration-500">
+                    "In 30 days, one video brought us <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">16,000 views</span> and <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">20 warm calls</span> ready to buy."
+                  </p>
+                </blockquote>
+
+                <div className="flex flex-col items-center gap-6 mt-auto">
+                  <div className="space-y-1">
+                    <p className="font-black text-lg text-black">Idriis Abu Haythami</p>
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-red-500">CEO & Founder @ Zaad Institute</p>
+                  </div>
+                  <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-black/[0.05]">
+                    <LiteYouTube videoId="F1OCIakR9y0" title="Idriis Abu Haythami - Client Success" />
                   </div>
                 </div>
               </div>

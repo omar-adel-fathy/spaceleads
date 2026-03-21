@@ -51,7 +51,7 @@ const FinalCTA = () => {
           </div>
 
           <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-8 tracking-tighter leading-none">
-            Scale on <span className="text-red-500">Autopilot?</span>
+            Still <span className="text-red-500">Scrolling?</span>
           </h2>
 
           <p className="text-lg md:text-xl text-white/40 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
@@ -66,7 +66,7 @@ const FinalCTA = () => {
             >
               <div className="absolute inset-x-0 bottom-0 h-1 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               <Calendar className="w-5 h-5" />
-              <span>Secure Your Strategy Session</span>
+              <span>Secure Your discovery Session</span>
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
             </button>
 

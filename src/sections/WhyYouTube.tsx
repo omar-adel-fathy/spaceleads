@@ -85,13 +85,12 @@ const WhyYouTube = () => {
         {/* Section Heading - centered */}
         <h2
           ref={headingRef}
-          className="text-[clamp(12px,3.5vw,48px)] font-black text-center mb-16 md:mb-20 text-black whitespace-nowrap tracking-tight"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center mb-16 md:mb-20 text-black tracking-tight flex flex-col items-center justify-center gap-2"
         >
-          This Is Why YouTube Is The{' '}
+          <span>This Is Why YouTube Is The</span>
           <span className="relative inline-block">
-            <span className="text-red-500">#1</span>
-          </span>{' '}
-          Client Getting Machine
+            <span className="text-red-500">#1</span> Client Getting Machine
+          </span>
         </h2>
 
         {/* Benefits Grid - centered cards */}
