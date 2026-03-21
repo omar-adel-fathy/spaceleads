@@ -63,9 +63,9 @@ const Footer = () => {
             <div className="flex flex-col gap-4">
               {[
                 { label: 'Why YouTube', href: '#why-youtube' },
-                { label: 'Case Studies', href: '#portfolio' },
-                { label: 'Our Work', href: '#process' },
-                { label: 'Process', href: '#results' },
+                { label: 'Case Studies', href: '#testimonials' },
+                { label: 'Our Work', href: '#portfolio' },
+                { label: 'Process', href: '#process' },
                 { label: 'FAQ', href: '#faq' },
               ].map((link) => (
                 <a

@@ -74,7 +74,7 @@ export default function DepthDeckCarousel({ autoplayInterval = 4000 }: Props) {
       {/* Stage */}
       <div
         className="relative flex items-center justify-center"
-        style={{ height: 'clamp(320px, 55vw, 580px)', perspective: '1600px', perspectiveOrigin: '50% 60%' }}
+        style={{ height: 'clamp(420px, 68vw, 720px)', perspective: '1600px', perspectiveOrigin: '50% 60%' }}
       >
         {cards.map(({ idx, off }) => {
           const t = OFFSETS[off as keyof typeof OFFSETS] ?? OFFSETS[Math.sign(off) * SIDES as keyof typeof OFFSETS];
@@ -96,20 +96,20 @@ export default function DepthDeckCarousel({ autoplayInterval = 4000 }: Props) {
               className="absolute cursor-pointer"
               style={{
                 transformStyle: 'preserve-3d',
-                width: 'clamp(180px, 26vw, 380px)',
-                aspectRatio: '4/3',           // landscape — matches screenshot images
+                width: 'clamp(240px, 34vw, 500px)',
+                aspectRatio: '16/9',
               }}
               whileHover={isCenter
                 ? { scale: t.scale + 0.025, y: t.y - 6 }
                 : { opacity: Math.min(t.opacity + 0.18, 1) }
               }
             >
-              <div className={`w-full h-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl relative
+              <div className={`w-full h-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl relative bg-black/[0.04]
                 ${isCenter ? 'ring-[3px] ring-white/30' : ''}`}>
                 <img
                   src={images[idx]}
                   alt={`Result ${idx + 1}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   loading="lazy"
                   draggable={false}
                 />

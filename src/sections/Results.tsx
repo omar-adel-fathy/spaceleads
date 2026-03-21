@@ -54,11 +54,11 @@ const Results = () => {
     <section
       id="results"
       ref={sectionRef}
-      className="relative py-12 md:py-16 bg-white overflow-hidden"
+      className="relative py-8 md:py-10 bg-white overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div ref={headingRef} className="text-center mb-16">
+        <div ref={headingRef} className="text-center mb-8">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 tracking-tight">
             Our <span className="text-red-500">Results</span>
           </h2>

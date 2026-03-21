@@ -17,10 +17,9 @@ const Navbar = () => {
 
   const navLinks = [
     { label: 'Why YouTube', href: '#why-youtube' },
-    { label: 'Love', href: '#testimonials' },
-    { label: 'Case Studies', href: '#portfolio' },
-    { label: 'Our Work', href: '#process' },
-    { label: 'Process', href: '#results' },
+    { label: 'Case Studies', href: '#testimonials' },
+    { label: 'Our Work', href: '#portfolio' },
+    { label: 'Process', href: '#process' },
     { label: 'FAQ', href: '#faq' },
   ];
 
