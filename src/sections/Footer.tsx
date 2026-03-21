@@ -1,15 +1,17 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Youtube, Instagram, Twitter, Linkedin, ArrowUpRight } from 'lucide-react';
+import { Youtube, Instagram, Twitter, Linkedin, Facebook, GraduationCap, ArrowUpRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const socialLinks = [
-  { icon: Youtube, label: 'YouTube', href: '#' },
-  { icon: Instagram, label: 'Instagram', href: '#' },
-  { icon: Twitter, label: 'X', href: '#' },
-  { icon: Linkedin, label: 'LinkedIn', href: '#' },
+  { icon: Youtube, label: 'YouTube', href: 'https://www.youtube.com/@belalgaberbiz' },
+  { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/belalgaberrr' },
+  { icon: Twitter, label: 'X', href: 'https://x.com/belalgaberrr' },
+  { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/belalgaberrr' },
+  { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/belalgaberrr' },
+  { icon: GraduationCap, label: 'Skool', href: 'https://www.skool.com/@belalgaberrr' },
 ];
 
 const Footer = () => {

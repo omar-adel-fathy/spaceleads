@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import DepthDeckCarousel from '../components/DepthDeckCarousel';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -134,6 +135,11 @@ const Results = () => {
           <p className="text-lg text-black/50 max-w-2xl mx-auto">
             Real numbers from real clients. This is what happens when strategy meets execution.
           </p>
+        </div>
+
+        {/* DepthDeck Carousel */}
+        <div className="mb-20">
+          <DepthDeckCarousel />
         </div>
 
         {/* Results Grid */}
