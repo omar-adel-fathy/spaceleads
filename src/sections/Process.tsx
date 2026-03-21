@@ -1,31 +1,38 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Camera, Film, Share2, Sparkles } from 'lucide-react';
+import { Compass, Camera, Sparkles, Share2 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
   {
     number: '01',
-    icon: Camera,
-    title: 'Done-For-You Strategy',
+    icon: Compass,
+    title: 'Market Research & Strategy',
     description:
-      "We design your unique 'Content Ecosystem'. From scripting to hook optimization, we ensure every video is engineered to convert high-ticket leads while you just focus on filming.",
+      "We dig into your market, study your audience's behavior, and identify the exact content gaps your competitors are missing. From there, we build your content roadmap, come up with ideas and write scripts engineered to attract, qualify, and convert your ideal buyer.",
   },
   {
     number: '02',
-    icon: Film,
-    title: 'Premium Post-Production',
+    icon: Camera,
+    title: 'Video Recording',
     description:
-      "Our world-class editors transform raw footage into cinematic assets. We handle thumbnails, SEO, and multi-platform distribution to make you omnipresent without the headache.",
+      "You film. We guide. Just 2-4 hours a month of batch filming is all it takes. We handle everything from building your filming setup to giving you proven SOPs that make every session fast, focused, and stress-free.",
   },
   {
     number: '03',
-    icon: Share2,
-    title: 'Scale & Dominate',
+    icon: Sparkles,
+    title: 'Post-Production',
     description:
-      "Witness your authority explode. We implement systems that turn views into booked calls, allowing you to scale your agency or coaching business to 7-8 figures sustainably.",
+      "We edit your footage, design your thumbnails, optimize every video for SEO, and schedule it for publishing — only after your approval. Every detail is dialed in so your videos are built to perform from day one.",
+  },
+  {
+    number: '04',
+    icon: Share2,
+    title: 'Distribution',
+    description:
+      "Uploading is just the start. We help you push every video across your other channels — turning long-form content into short-form clips, Instagram stories, Emails, etc., nurturing your existing pipeline, shortening your sales cycle, and converting a higher percentage of your audience into paying clients.",
   },
 ];
 

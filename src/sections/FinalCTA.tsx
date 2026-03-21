@@ -11,22 +11,7 @@ const FinalCTA = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Content animation
-      gsap.fromTo(
-        contentRef.current,
-        { scale: 0.9, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 1.2,
-          ease: 'expo.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
-          },
-        }
-      );
+      // Animations temporarily disabled
     }, sectionRef);
 
     return () => ctx.revert();
@@ -70,7 +55,7 @@ const FinalCTA = () => {
           </h2>
 
           <p className="text-lg md:text-xl text-white/40 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
-            Stop guessing. Start dominating. Book your free strategy call and let's install the YouTube Sales Engine into your business today.
+            Stop guessing. Start dominating. Book your free discovery call and let's install the YouTube Client Acquisition System into your business today.
           </p>
 
           {/* Massive Button */}

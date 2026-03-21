@@ -1,15 +1,18 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Youtube, Instagram, Twitter, Linkedin, ArrowUpRight } from 'lucide-react';
+import { Youtube, Instagram, Twitter, Linkedin, Facebook, GraduationCap, ArrowUpRight } from 'lucide-react';
+import RollRevealButton from '../components/RollRevealButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const socialLinks = [
-  { icon: Youtube, label: 'YouTube', href: '#' },
-  { icon: Instagram, label: 'Instagram', href: '#' },
-  { icon: Twitter, label: 'X', href: '#' },
-  { icon: Linkedin, label: 'LinkedIn', href: '#' },
+  { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/belalgaberrr' },
+  { icon: GraduationCap, label: 'Skool', href: 'https://www.skool.com/@belalgaberrr' },
+  { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/belalgaberrr' },
+  { icon: Twitter, label: 'X', href: 'https://x.com/belalgaberrr' },
+  { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/belalgaberrr' },
+  { icon: Youtube, label: 'YouTube', href: 'https://www.youtube.com/@belalgaberbiz' },
 ];
 
 const Footer = () => {
@@ -17,26 +20,15 @@ const Footer = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Social icons animation
-      gsap.fromTo(
-        '.social-icon',
-        { y: 20, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: 'expo.out',
-          scrollTrigger: {
-            trigger: footerRef.current,
-            start: 'top 95%',
-          },
-        }
-      );
+      // Animations reserved
     }, footerRef);
-
     return () => ctx.revert();
   }, []);
+
+  const scrollToBookCall = () => {
+    const el = document.querySelector('#book-call');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <footer ref={footerRef} className="relative bg-white pt-24 pb-12 border-t border-black/[0.03] overflow-hidden">
@@ -45,25 +37,24 @@ const Footer = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+
           {/* Brand Column */}
           <div className="space-y-8">
             <a href="#" className="flex items-center gap-1 group">
-              <span className="font-black text-3xl tracking-tighter uppercase text-black">
-                Space
-              </span>
-              <span className="font-black text-3xl tracking-tighter uppercase text-red-500">
-                Leads
-              </span>
+              <span className="font-black text-3xl tracking-tighter uppercase text-black">Space</span>
+              <span className="font-black text-3xl tracking-tighter uppercase text-red-500">Leads</span>
             </a>
             <p className="text-black/40 font-medium leading-relaxed max-w-xs">
-              The #1 YouTube Sales Engine for high-ticket agency owners and coaches. We help you dominate your market through cinematic authority.
+              The #1 YouTube Client Acquisition System for high-ticket agency owners and coaches. We help you dominate your market through cinematic authority.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
-                  className="social-icon w-12 h-12 rounded-full bg-[#FAFAFA] border border-black/[0.03] flex items-center justify-center text-black/40 hover:text-white hover:bg-red-500 transition-all duration-500 group/social"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-icon w-11 h-11 rounded-full bg-[#FAFAFA] border border-black/[0.03] flex items-center justify-center text-black/40 hover:text-white hover:bg-red-500 transition-all duration-500 group/social"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5 transition-transform duration-500 group-hover/social:scale-110" strokeWidth={1.5} />
@@ -77,9 +68,9 @@ const Footer = () => {
             <h4 className="text-sm font-black uppercase tracking-[0.2em] text-black">Navigation</h4>
             <div className="flex flex-col gap-4">
               {['Why YouTube', 'Portfolio', 'Process', 'Results', 'FAQ'].map((link) => (
-                <a 
-                  key={link} 
-                  href={`#${link.toLowerCase().replace(' ', '-')}`} 
+                <a
+                  key={link}
+                  href={`#${link.toLowerCase().replace(' ', '-')}`}
                   className="text-black/40 font-bold hover:text-red-500 flex items-center gap-2 group/link transition-all"
                 >
                   <span>{link}</span>
@@ -93,36 +84,36 @@ const Footer = () => {
           <div className="space-y-8">
             <h4 className="text-sm font-black uppercase tracking-[0.2em] text-black">Contact</h4>
             <div className="flex flex-col gap-4">
-              <p className="text-black/40 font-bold">hello@spaceleads.io</p>
-              <p className="text-black/40 font-bold">Dubai, UAE</p>
+              <a
+                href="mailto:spaceleads.agency@gmail.com"
+                className="text-black/40 font-bold hover:text-red-500 transition-colors flex items-center gap-2 group/email"
+              >
+                spaceleads.agency@gmail.com
+                <ArrowUpRight className="w-3 h-3 opacity-0 group-hover/email:opacity-100 transition-all" />
+              </a>
             </div>
           </div>
 
-          {/* Newsletter/Mailing */}
+          {/* CTA Column */}
           <div className="space-y-8">
-            <h4 className="text-sm font-black uppercase tracking-[0.2em] text-black">Stay Updated</h4>
-            <div className="relative group">
-              <input 
-                type="email" 
-                placeholder="Your email" 
-                className="w-full bg-[#FAFAFA] border border-black/[0.03] rounded-2xl px-6 py-4 text-sm font-medium focus:outline-none focus:border-red-500/50 transition-all"
-              />
-              <button className="absolute right-2 top-2 bottom-2 px-4 rounded-xl bg-black text-white text-[10px] font-black uppercase tracking-widest hover:bg-red-500 transition-all">
-                Join
-              </button>
-            </div>
+            <h4 className="text-sm font-black uppercase tracking-[0.2em] text-black">Ready to Scale?</h4>
+            <p className="text-black/40 font-medium leading-relaxed text-sm">
+              Let's build your YouTube client acquisition system. Book a free strategy call today.
+            </p>
+            <RollRevealButton
+              defaultText="Book a Call"
+              hoverText="Let's Talk"
+              onClick={scrollToBookCall}
+              className="shadow-xl border border-black/[0.05]"
+            />
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-12 border-t border-black/[0.03] flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="pt-12 border-t border-black/[0.03] flex items-center justify-center">
           <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/20">
             &copy; {new Date().getFullYear()} SpaceLeads. All rights reserved.
           </p>
-          <div className="flex items-center gap-8">
-            <a href="#" className="text-[10px] font-black uppercase tracking-[0.2em] text-black/20 hover:text-red-500 transition-colors">Privacy Policy</a>
-            <a href="#" className="text-[10px] font-black uppercase tracking-[0.2em] text-black/20 hover:text-red-500 transition-colors">Terms of Service</a>
-          </div>
         </div>
       </div>
     </footer>

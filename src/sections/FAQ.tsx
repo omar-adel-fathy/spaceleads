@@ -1,95 +1,186 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Plus, Minus, HelpCircle } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 interface FAQItem {
   question: string;
-  answer: string;
+  answer: string | React.ReactNode;
 }
 
 const faqs: FAQItem[] = [
   {
     question: 'Who do you work with?',
+    answer: (
+      <ul className="space-y-1 list-none">
+        {[
+          'Coaches',
+          'Consultants',
+          'Course / Info-product Sellers',
+          'Service Providers (Agency Owners)',
+          'Any B2B/B2C business owners wanting to grow their brand',
+        ].map((item) => (
+          <li key={item} className="flex items-start gap-2">
+            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    ),
+  },
+  {
+    question: 'What exactly do you help with?',
     answer:
-      'We work with coaches, consultants, and agency owners who sell high-ticket offers ($3,000+). Our ideal clients are already making $20K+ per month and want to scale through YouTube.',
+      'We run your entire YouTube operation. Strategy, scripting, editing, SEO, thumbnails, publishing — all handled. You show up once a month to record. That\'s it. Everything else is built to bring qualified leads straight to your calendar.',
+  },
+  {
+    question: 'Why post on YouTube?',
+    answer:
+      'Unlike ads that stop the second you pause spend, or cold outreach that gets ignored — YouTube captures buyers who are already looking. High intent. Evergreen. One video can drive leads for months without touching your ad budget.',
   },
   {
     question: 'How soon can I expect results?',
     answer:
-      'Most clients see their first inbound leads within 30-60 days. The full system typically takes 90 days to fully optimize and start generating 10-20 qualified calls per month consistently.',
+      'Every channel is different. Starting from scratch, most clients see traction within 90 days. Already have an audience? Results typically show up in the first month.',
   },
   {
-    question: 'How much does it cost?',
+    question: 'How many videos will be created per month?',
     answer:
-      'Our done-for-you YouTube sales system starts at $5,000/month. We also offer performance-based pricing for select clients. Book a call to discuss which option works best for your business.',
+      '4 videos a month is where we start most clients — it\'s the sweet spot. Need more volume? We have packages for 6 and 8 videos a month, and we can scale beyond that if needed.',
   },
   {
-    question: 'Are your contracts month to month?',
+    question: 'What is the turnaround time?',
     answer:
-      'Yes, after an initial 90-day commitment to allow the system to fully ramp up, all contracts are month-to-month. We believe in earning your business every month.',
-  },
-  {
-    question: 'What happens when we start working together?',
-    answer:
-      "We begin with a comprehensive strategy session to understand your offer, audience, and goals. Then we handle everything—from research and scripting to editing and optimization. You just show up and film.",
-  },
-  {
-    question: 'How many videos will we be making?',
-    answer:
-      'We typically recommend 4-8 videos per month depending on your goals and capacity. This frequency is optimal for YouTube algorithm favor without overwhelming your schedule.',
+      'Most videos are turned around in 4–6 days. That covers anything under 15 minutes from footage to final delivery.',
   },
 ];
+
+// Split FAQs into two columns
+const leftFaqs = faqs.slice(0, Math.ceil(faqs.length / 2));
+const rightFaqs = faqs.slice(Math.ceil(faqs.length / 2));
+
+interface FAQCardProps {
+  faq: FAQItem;
+  index: number;
+  openIndex: number | null;
+  onToggle: (i: number) => void;
+}
+
+const FAQCard = ({ faq, index, openIndex, onToggle }: FAQCardProps) => {
+  const isOpen = openIndex === index;
+  return (
+    <div
+      className={`rounded-[1.75rem] border transition-all duration-300 ease-out overflow-hidden ${
+        isOpen
+          ? 'bg-[#FAFAFA] border-red-500/20 shadow-lg'
+          : 'bg-white border-black/[0.04] hover:border-red-500/10 hover:shadow-md'
+      }`}
+    >
+      <button
+        onClick={() => onToggle(index)}
+        className="w-full px-7 md:px-8 py-7 flex items-center justify-between text-left group"
+      >
+        <span
+          className={`text-base md:text-lg font-black transition-colors duration-300 pr-4 ${
+            isOpen ? 'text-red-500' : 'text-black group-hover:text-red-500'
+          }`}
+        >
+          {faq.question}
+        </span>
+        <div
+          className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-500 shadow-sm ${
+            isOpen
+              ? 'bg-red-500 rotate-180 shadow-red-500/40'
+              : 'bg-black/[0.04] group-hover:bg-red-500/10'
+          }`}
+        >
+          {isOpen ? (
+            <Minus className="w-4 h-4 text-white" />
+          ) : (
+            <Plus className={`w-4 h-4 transition-colors duration-300 ${isOpen ? 'text-white' : 'text-black/40 group-hover:text-red-500'}`} />
+          )}
+        </div>
+      </button>
+
+      <div
+        className={`grid transition-all duration-300 ease-in-out ${
+          isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="px-7 md:px-8 pb-8">
+            <div className="w-full h-px bg-black/[0.05] mb-6" />
+            <div className="text-sm md:text-base text-black/50 leading-relaxed font-medium">
+              {faq.answer}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const FAQ = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
-  const faqsRef = useRef<HTMLDivElement>(null);
+  const leftColRef = useRef<HTMLDivElement>(null);
+  const rightColRef = useRef<HTMLDivElement>(null);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Heading animation
+      // Heading
       gsap.fromTo(
         headingRef.current,
-        { y: 50, opacity: 0 },
+        { y: 40, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.8,
+          duration: 0.7,
           ease: 'expo.out',
           scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 80%',
+            trigger: headingRef.current,
+            start: 'top 82%',
             toggleActions: 'play none none reverse',
           },
         }
       );
-
-      // FAQ items animation
-      const faqItems = faqsRef.current?.querySelectorAll('.faq-item');
-      if (faqItems) {
-        gsap.fromTo(
-          faqItems,
-          { y: 30, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.6,
-            stagger: 0.08,
-            ease: 'expo.out',
-            scrollTrigger: {
-              trigger: faqsRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        );
-      }
+      // Left column
+      gsap.fromTo(
+        leftColRef.current,
+        { x: -40, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'expo.out',
+          scrollTrigger: {
+            trigger: leftColRef.current,
+            start: 'top 88%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
+      // Right column — slight delay
+      gsap.fromTo(
+        rightColRef.current,
+        { x: 40, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.1,
+          ease: 'expo.out',
+          scrollTrigger: {
+            trigger: rightColRef.current,
+            start: 'top 88%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
     }, sectionRef);
-
     return () => ctx.revert();
   }, []);
 
@@ -103,77 +194,50 @@ const FAQ = () => {
       ref={sectionRef}
       className="relative py-24 md:py-40 bg-white overflow-hidden"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header - centered */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* Section Header */}
         <div ref={headingRef} className="text-center mb-16 md:mb-24">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 text-red-500 text-[10px] font-black uppercase tracking-[0.2em] mb-6">
-            <HelpCircle className="w-3 h-3" />
-            <span>Support</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-black mb-8 tracking-tighter">
-            Commonly Asked <span className="text-red-500">Questions</span>
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-black mb-6 tracking-tighter">
+            Frequently Asked <span className="text-red-500">Questions</span>
           </h2>
           <p className="text-lg md:text-xl text-black/40 max-w-2xl mx-auto font-medium leading-relaxed">
-            Everything you need to know about scaling your brand with our YouTube sales engine.
+            Everything you need to know about scaling with our YouTube client acquisition system.
           </p>
         </div>
 
-        {/* FAQ List */}
-        <div ref={faqsRef} className="space-y-4 md:space-y-6">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className={`faq-item group rounded-[2rem] border transition-all duration-500 ease-out overflow-hidden ${
-                openIndex === index 
-                  ? 'bg-[#FAFAFA] border-red-500/20 shadow-2xl scale-[1.02]' 
-                  : 'bg-white border-black/[0.03] hover:border-red-500/10 hover:shadow-xl'
-              }`}
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full px-8 md:px-10 py-8 flex items-center justify-between text-left group"
-              >
-                <span className={`text-lg md:text-xl font-black transition-colors duration-500 pr-6 ${
-                  openIndex === index ? 'text-red-500' : 'text-black group-hover:text-red-500'
-                }`}>
-                  {faq.question}
-                </span>
-                <div
-                  className={`flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-700 shadow-sm ${
-                    openIndex === index
-                      ? 'bg-red-500 rotate-180 scale-110 shadow-red-500/50'
-                      : 'bg-black/[0.03] group-hover:bg-red-500/10'
-                  }`}
-                >
-                  {openIndex === index ? (
-                    <Minus className="w-5 h-5 text-white" />
-                  ) : (
-                    <Plus
-                      className={`w-5 h-5 transition-colors duration-500 ${
-                        openIndex === index ? 'text-white' : 'text-black/40 group-hover:text-red-500'
-                      }`}
-                    />
-                  )}
-                </div>
-              </button>
-
-              {/* Answer */}
-              <div
-                className={`overflow-hidden transition-all duration-700 ease-in-out ${
-                  openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
-                }`}
-              >
-                <div className="px-8 md:px-10 pb-10">
-                  <div className="w-full h-px bg-black/[0.05] mb-8" />
-                  <p className="text-base md:text-lg text-black/50 leading-relaxed font-medium">
-                    {faq.answer}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* Two-column FAQ grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+          {/* Left column */}
+          <div ref={leftColRef} className="flex flex-col gap-4 md:gap-5">
+            {leftFaqs.map((faq, i) => (
+              <FAQCard
+                key={i}
+                faq={faq}
+                index={i}
+                openIndex={openIndex}
+                onToggle={toggleFAQ}
+              />
+            ))}
+          </div>
+          {/* Right column — indices continue from where left stopped */}
+          <div ref={rightColRef} className="flex flex-col gap-4 md:gap-5">
+            {rightFaqs.map((faq, i) => (
+              <FAQCard
+                key={i + leftFaqs.length}
+                faq={faq}
+                index={i + leftFaqs.length}
+                openIndex={openIndex}
+                onToggle={toggleFAQ}
+              />
+            ))}
+          </div>
         </div>
       </div>
+
+      {/* Background glows */}
+      <div className="absolute top-1/3 left-0 w-72 h-72 bg-red-500/5 blur-[100px] rounded-full -ml-36 pointer-events-none" />
+      <div className="absolute bottom-1/3 right-0 w-72 h-72 bg-red-500/5 blur-[100px] rounded-full -mr-36 pointer-events-none" />
     </section>
   );
 };

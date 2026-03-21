@@ -1,28 +1,28 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Search, Infinity, TrendingUp } from 'lucide-react';
+import { Magnet, Timer, BarChart3 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const benefits = [
   {
-    icon: Search,
+    icon: Magnet,
     title: 'Demand Capture',
     description:
-      'YouTube is the second-largest search engine in the world, and with the right strategy, we can capture all of the demand from your ICP.',
+      "YouTube is the world's second-largest search engine — and with a strategy built around your ICP, we put your content directly in front of buyers who are already looking.",
   },
   {
-    icon: Infinity,
+    icon: Timer,
     title: 'Evergreen',
     description:
-      "The videos we create will be evergreen, which means that once the ball starts rolling, we'll be generating leads from the videos passively.",
+      "The content on YouTube doesn't expire. Once momentum kicks in, your videos keep attracting and qualifying leads on autopilot for years — no ad spend required.",
   },
   {
-    icon: TrendingUp,
+    icon: BarChart3,
     title: 'Increased Conversion',
     description:
-      "Because marketing is one big ecosystem, having long-form YouTube videos will increase conversions across all your other marketing channels.",
+      "YouTube doesn't operate in a vacuum. Long-form video warms your audience before they ever hit your funnel — lifting conversion rates across every other channel you run.",
   },
 ];
 
@@ -85,7 +85,7 @@ const WhyYouTube = () => {
         {/* Section Heading - centered */}
         <h2
           ref={headingRef}
-          className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-16 md:mb-20 text-black"
+          className="text-[clamp(12px,3.5vw,48px)] font-black text-center mb-16 md:mb-20 text-black whitespace-nowrap tracking-tight"
         >
           This Is Why YouTube Is The{' '}
           <span className="relative inline-block">

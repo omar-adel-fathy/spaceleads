@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import LiteYouTube from '../components/LiteYouTube';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,15 +14,7 @@ const portfolioVideos = [
   { id: 'qpNsKYcsP5c', title: 'Client Work 6' },
 ];
 
-// Scattered positions for gallery effect
-const videoPositions = [
-  { rotate: -3 },
-  { rotate: 4 },
-  { rotate: -2 },
-  { rotate: 3 },
-  { rotate: -4 },
-  { rotate: 2 },
-];
+// Video items
 
 const Portfolio = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -47,20 +40,19 @@ const Portfolio = () => {
         }
       );
 
-      // Gallery items pop from nothing animation - FAST
+      // Gallery items pop animation
       const items = galleryRef.current?.querySelectorAll('.gallery-item');
       if (items) {
         gsap.fromTo(
           items,
-          { scale: 0, opacity: 0, rotate: -15, y: 50 },
+          { scale: 0.8, opacity: 0, y: 50 },
           {
             scale: 1,
             opacity: 1,
-            rotate: 0,
             y: 0,
-            duration: 0.4,
-            stagger: { each: 0.06, from: 'center' },
-            ease: 'back.out(1.4)',
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'expo.out',
             scrollTrigger: {
               trigger: galleryRef.current,
               start: 'top 85%',
@@ -117,24 +109,20 @@ const Portfolio = () => {
           ref={galleryRef}
           className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
-          {portfolioVideos.map((video, index) => {
-            const pos = videoPositions[index % videoPositions.length];
+          {portfolioVideos.map((video) => {
             return (
-              <div
-                key={video.id}
-                className="gallery-item relative aspect-video rounded-2xl md:rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:z-10 bg-black"
-                style={{ transform: `rotate(${pos.rotate}deg)` }}
-              >
-                <iframe
-                  src={`https://www.youtube.com/embed/${video.id}?rel=0&modestbranding=1`}
-                  title={video.title}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                  className="video-iframe absolute inset-0 w-full h-full transition-opacity duration-500"
-                  style={{ border: 'none' }}
-                />
+              <div key={video.id} className="gallery-item relative">
+                <div
+                  className="relative aspect-video rounded-2xl md:rounded-3xl overflow-hidden shadow-xl bg-black transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.03] hover:-translate-y-2 hover:shadow-[0_20px_40px_-10px_rgba(239,68,68,0.4)] cursor-pointer hover:z-20 group"
+                >
+                  <LiteYouTube
+                    videoId={video.id}
+                    title={video.title}
+                    className="video-iframe absolute inset-0 w-full h-full transition-opacity duration-500"
+                  />
+                  {/* Subtle hover overlay effect */}
+                  <div className="absolute inset-0 bg-red-500/0 group-hover:bg-red-500/5 transition-colors duration-500 pointer-events-none" />
+                </div>
               </div>
             );
           })}

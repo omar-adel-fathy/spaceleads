@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import RollRevealButton from '../components/RollRevealButton';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,10 +16,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { label: 'Efficiency', href: '#why-youtube' },
-    { label: 'Portfolio', href: '#portfolio' },
+    { label: 'Why YouTube', href: '#why-youtube' },
+    { label: 'Case Studies', href: '#testimonials' },
+    { label: 'Our Work', href: '#portfolio' },
     { label: 'Process', href: '#process' },
-    { label: 'ROI', href: '#results' },
     { label: 'FAQ', href: '#faq' },
   ];
 
@@ -67,17 +68,14 @@ const Navbar = () => {
         </div>
 
         {/* CTA Button */}
-        <button
-          onClick={() => scrollToSection('#book-call')}
-          className={`hidden lg:flex items-center gap-2 px-8 py-3.5 rounded-full font-black text-[10px] uppercase tracking-[0.2em] transition-all duration-500 ${
-            isScrolled 
-              ? 'bg-black text-white hover:bg-red-500 shadow-xl hover:shadow-red-500/40' 
-              : 'bg-white text-black hover:bg-red-500 hover:text-white shadow-lg'
-          }`}
-        >
-          <span>Book a Call</span>
-          <ArrowRight className="w-4 h-4" />
-        </button>
+        <div className="hidden lg:flex">
+          <RollRevealButton
+            defaultText="Book a call"
+            hoverText="Let's Talk"
+            onClick={() => scrollToSection('#book-call')}
+            className={`shadow-xl ${isScrolled ? 'border border-black/[0.05]' : ''}`}
+          />
+        </div>
 
         {/* Mobile Menu Button */}
         <button

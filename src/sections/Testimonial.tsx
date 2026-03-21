@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Quote, Star } from 'lucide-react';
+import LiteYouTube from '../components/LiteYouTube';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -70,6 +71,7 @@ const Testimonial = () => {
 
   return (
     <section
+      id="testimonials"
       ref={sectionRef}
       className="relative py-24 md:py-40 bg-white overflow-hidden"
       style={{ perspective: '1500px' }}
@@ -80,51 +82,73 @@ const Testimonial = () => {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 tracking-tight">
             Client <span className="text-red-500">Love</span>
           </h2>
-          <p className="text-lg md:text-xl text-black/40 max-w-2xl mx-auto font-medium">
+          <p className="text-lg md:text-xl text-black/40 max-w-3xl mx-auto font-medium text-balance">
             Don't just take our word for it. Hear directly from the founders we've helped scale.
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          {/* Main Text Testimonial */}
-          <div className="testimonial-card relative bg-[#FAFAFA] rounded-[3rem] p-10 md:p-20 shadow-2xl border border-black/[0.03] overflow-hidden group">
-            {/* Subtle Background Text */}
-            <div className="absolute top-0 right-0 p-10 select-none pointer-events-none opacity-[0.02]">
-              <Quote className="w-64 h-64 rotate-180" />
-            </div>
-
-            <div className="relative z-10 text-center max-w-3xl mx-auto">
-              <div className="flex items-center justify-center gap-1 mb-10">
-                {[1, 2, 3, 4, 5].map((s) => (
-                  <Star key={s} className="w-5 h-5 fill-red-500 text-red-500" />
-                ))}
+        <div className="w-full">
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Main Text Testimonial 1 - Idriis */}
+            <div className="testimonial-card relative bg-[#FAFAFA] rounded-[2.5rem] p-8 md:p-10 xl:p-12 shadow-2xl border border-black/[0.03] overflow-hidden group">
+              {/* Subtle Background Text */}
+              <div className="absolute top-0 right-0 p-8 select-none pointer-events-none opacity-[0.02]">
+                <Quote className="w-48 h-48 rotate-180" />
               </div>
 
-              <blockquote className="mb-12">
-                <p className="text-2xl md:text-3xl lg:text-4xl font-black text-black leading-tight tracking-tight">
-                  "In the first 30 days, one video brought us{' '}
-                  <span className="text-red-500 underline decoration-black/10 underline-offset-8">16,000 views</span> and{' '}
-                  <span className="text-red-500 underline decoration-black/10 underline-offset-8">20 warm calls</span> ready to buy."
-                </p>
-              </blockquote>
-
-              <div className="flex flex-col items-center gap-6">
-                <div className="relative w-full max-w-xl aspect-video rounded-2xl overflow-hidden shadow-2xl border border-black/[0.05]">
-                  <iframe 
-                    width="100%" 
-                    height="100%" 
-                    src="https://www.youtube.com/embed/TSrTVrUZw0U?si=Orm3dZb7OsQtmoEQ" 
-                    title="YouTube video player" 
-                    frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerPolicy="strict-origin-when-cross-origin" 
-                    allowFullScreen
-                    className="w-full h-full"
-                  />
+              <div className="relative z-10 text-center max-w-3xl mx-auto h-full flex flex-col">
+                <div className="flex items-center justify-center gap-1 mb-8">
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <Star key={s} className="w-4 h-4 fill-red-500 text-red-500" />
+                  ))}
                 </div>
-                <div className="space-y-1">
-                  <p className="font-black text-xl text-black">Idriis Abu Haythami</p>
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-red-500">CEO & Founder @ Zaad Institute</p>
+
+                <blockquote className="mb-10 flex-grow">
+                  <p className="text-xl sm:text-2xl xl:text-3xl font-black text-black leading-tight tracking-tight max-w-[28ch] mx-auto group-hover:text-red-500 transition-colors duration-500">
+                    "In 30 days, one video brought us <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">16,000 views</span> and <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">20 warm calls</span> ready to buy."
+                  </p>
+                </blockquote>
+
+                <div className="flex flex-col items-center gap-6 mt-auto">
+                  <div className="space-y-1">
+                    <p className="font-black text-lg text-black">Idriis Abu Haythami</p>
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-red-500">CEO & Founder @ Zaad Institute</p>
+                  </div>
+                  <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-black/[0.05]">
+                    <LiteYouTube videoId="F1OCIakR9y0" title="Idriis Abu Haythami - Client Success" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Main Text Testimonial 2 - Zahra */}
+            <div className="testimonial-card relative bg-[#FAFAFA] rounded-[2.5rem] p-8 md:p-10 xl:p-12 shadow-2xl border border-black/[0.03] overflow-hidden group">
+              {/* Subtle Background Text */}
+              <div className="absolute top-0 right-0 p-8 select-none pointer-events-none opacity-[0.02]">
+                <Quote className="w-48 h-48 rotate-180" />
+              </div>
+
+              <div className="relative z-10 text-center max-w-3xl mx-auto h-full flex flex-col">
+                <div className="flex items-center justify-center gap-1 mb-8">
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <Star key={`zahra-${s}`} className="w-4 h-4 fill-red-500 text-red-500" />
+                  ))}
+                </div>
+
+                <blockquote className="mb-10 flex-grow">
+                  <p className="text-xl sm:text-2xl xl:text-3xl font-black text-black leading-tight tracking-tight group-hover:text-red-500 transition-colors duration-500">
+                    "Zahra went from <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">2,000 subscribers to 6,000</span> in 90 days, and had her <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">biggest business month</span>, signing 8 clients."
+                  </p>
+                </blockquote>
+
+                <div className="flex flex-col items-center gap-6 mt-auto">
+                  <div className="space-y-1">
+                    <p className="font-black text-lg text-black">Zahra</p>
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-red-500">Founder & Network Marketer</p>
+                  </div>
+                  <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-black/[0.05]">
+                    <LiteYouTube videoId="rwT_YDTrbpo" title="Zahra - Client Success" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -139,17 +163,11 @@ const Testimonial = () => {
               >
                 {/* Video container with proper scaling for 9:16 YouTube Shorts */}
                 <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-                  <iframe 
-                    src={`https://www.youtube.com/embed/${video.id}?si=cspFs_s8pHP2wBw4&controls=1&modestbranding=1&rel=0&autoplay=0&playsinline=1`} 
+                  <LiteYouTube 
+                    videoId={video.id} 
                     title={video.title} 
-                    frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerPolicy="strict-origin-when-cross-origin" 
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                    style={{
-                      border: 'none',
-                    }}
+                    aspectRatio="portrait"
+                    className="w-full h-full"
                   />
                 </div>
                 
