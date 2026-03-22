@@ -147,17 +147,18 @@ const Testimonial = () => {
                   ))}
                 </div>
 
+                <div className="space-y-1 mb-8">
+                  <p className="font-black text-lg text-black">Zahra</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-red-500">Founder & Network Marketer</p>
+                </div>
+
                 <blockquote className="mb-10 flex-grow">
                   <p className="text-xl sm:text-2xl xl:text-3xl font-black text-black leading-tight tracking-tight group-hover:text-red-500 transition-colors duration-500">
                     "Zahra went from <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">2,000 subscribers to 6,000</span> in 90 days, and had her <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">biggest business month</span>, signing 8 clients."
                   </p>
                 </blockquote>
 
-                <div className="flex flex-col items-center gap-6 mt-auto">
-                  <div className="space-y-1">
-                    <p className="font-black text-lg text-black">Zahra</p>
-                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-red-500">Founder & Network Marketer</p>
-                  </div>
+                <div className="mt-auto">
                   <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-black/[0.05]">
                     <LiteYouTube videoId="rwT_YDTrbpo" title="Zahra - Client Success" />
                   </div>

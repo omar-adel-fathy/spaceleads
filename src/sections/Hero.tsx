@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ScrollText, Youtube } from 'lucide-react';
 import LiteYouTube from '../components/LiteYouTube';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -67,21 +67,35 @@ const Hero = () => {
       {/* Underline animation keyframes */}
       <style>{`
         @keyframes drawUnderline {
-          to {
-            stroke-dashoffset: 0;
-          }
+          to { stroke-dashoffset: 0; }
+        }
+        @keyframes floatY {
+          0%, 100% { transform: translateY(0px) rotate(-8deg); }
+          50%       { transform: translateY(-12px) rotate(-8deg); }
+        }
+        @keyframes floatYRight {
+          0%, 100% { transform: translateY(0px) rotate(6deg); }
+          50%       { transform: translateY(-14px) rotate(6deg); }
         }
       `}</style>
 
+      {/* Floating Script icon — left */}
+      <div className="pointer-events-none select-none absolute left-[4%] top-[28%] hidden lg:block -rotate-[8deg]">
+        <div className="animate-bounce hero-float-left bg-black/[0.06] rounded-2xl p-4 backdrop-blur-sm border border-black/[0.05]">
+          <ScrollText className="w-10 h-10 text-black" strokeWidth={1.5} />
+        </div>
+      </div>
+
+      {/* Floating YouTube icon — right */}
+      <div className="pointer-events-none select-none absolute right-[4%] top-[32%] hidden lg:block rotate-[6deg]">
+        <div className="animate-bounce hero-float-right bg-red-500/10 rounded-2xl p-4 backdrop-blur-sm border border-red-500/10">
+          <Youtube className="w-10 h-10 text-red-500" strokeWidth={1.5} />
+        </div>
+      </div>
+
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, black 1px, transparent 0)`,
-            backgroundSize: '40px 40px',
-          }}
-        />
+        <div className="absolute inset-0 hero-dot-bg" />
       </div>
 
       {/* Content - Centered */}
@@ -94,7 +108,7 @@ const Hero = () => {
         </div>
 
         {/* Main Headline - centered with dropping animation */}
-        <div className="space-y-4 md:space-y-6 mb-10" style={{ perspective: '2000px' }}>
+        <div className="hero-headline-wrap space-y-4 md:space-y-6 mb-10">
           <div className="overflow-hidden">
             <h1 className="drop-text drop-text-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-black leading-[1.1] tracking-tight">
               We'll Build a Done-For-You
@@ -119,7 +133,7 @@ const Hero = () => {
             </h1>
           </div>
           
-          <div className="overflow-visible">
+          <div className="overflow-visible py-3">
             <h1 className="drop-text drop-text-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-black leading-[1.1] tracking-tight">
               in <span className="relative inline-block">
                 <span>90 Days</span>
@@ -161,6 +175,7 @@ const Hero = () => {
         {/* CTA Button - Cool button style */}
         <div className="drop-text drop-text-6">
           <button
+            type="button"
             onClick={scrollToBookCall}
             className="cool-button group relative inline-flex justify-center items-center gap-4 bg-black text-white px-12 py-5 rounded-full font-black text-xs md:text-sm uppercase tracking-[0.2em] shadow-[0_15px_30px_-10px_rgba(0,0,0,0.5)] hover:shadow-[0_25px_50px_-12px_rgba(239,68,68,0.5)] hover:scale-[1.02] transition-all duration-500"
           >
