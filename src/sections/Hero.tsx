@@ -75,7 +75,7 @@ const Hero = () => {
       {/* Content - Centered */}
       <div className="hero-content relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Eyebrow - dropping animation */}
-        <div className="overflow-hidden mb-6">
+        <div className="overflow-hidden mb-16">
           <p className="drop-text drop-text-1 text-xs md:text-sm text-black/40 uppercase tracking-[0.4em] font-bold">
             Coaches, Consultants, and Agency Owners Selling High Ticket Offers:
           </p>
@@ -83,7 +83,7 @@ const Hero = () => {
 
         {/* Main Headline - centered with dropping animation */}
         <div className="hero-headline-wrap space-y-4 md:space-y-6 mb-10">
-          <div className="overflow-hidden mb-6 md:mb-10">
+          <div className="overflow-hidden">
             <h1 className="drop-text drop-text-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-black leading-[1.1] tracking-tight">
               We'll Build a Done-For-You
             </h1>
