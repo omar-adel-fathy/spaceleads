@@ -85,10 +85,10 @@ const Footer = () => {
             <h4 className="text-sm font-black uppercase tracking-[0.2em] text-black">Contact</h4>
             <div className="flex flex-col gap-4">
               <a
-                href="mailto:belal@spaceleads.org"
+                href="mailto:belal@spaceleads.co"
                 className="text-black/40 font-bold hover:text-red-500 transition-colors flex items-center gap-2 group/email"
               >
-                belal@spaceleads.org
+                belal@spaceleads.co
                 <ArrowUpRight className="w-3 h-3 opacity-0 group-hover/email:opacity-100 transition-all" />
               </a>
             </div>
