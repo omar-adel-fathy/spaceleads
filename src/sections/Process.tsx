@@ -175,7 +175,7 @@ const Process = () => {
                 <div className={`w-full md:w-1/2 md:pl-20 ${index % 2 === 0 ? 'md:opacity-0' : ''}`}>
                   <div className="step-card group">
                     <div className="p-8 md:p-10 rounded-[2.5rem] bg-white border border-black/[0.03] shadow-2xl hover:border-red-500/20 transition-all duration-700">
-                      <span className="text-6xl font-black text-black/[0.03] block mb-2 md:hidden">{step.number}</span>
+                      <span className="text-6xl font-black text-black/[0.03] block mb-2">{step.number}</span>
                       <h3 className="text-2xl font-black text-black mb-4 group-hover:text-red-500 transition-colors">{step.title}</h3>
                       <p className="text-black/40 font-medium leading-relaxed max-w-sm">{step.description}</p>
                     </div>

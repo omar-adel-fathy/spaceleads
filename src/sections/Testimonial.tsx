@@ -110,8 +110,8 @@ const Testimonial = () => {
                 {/* First Testimonial */}
                 <div className="mb-8">
                   <blockquote className="mb-6">
-                    <p className="text-lg sm:text-xl xl:text-2xl font-black text-black leading-tight tracking-tight max-w-[28ch] mx-auto group-hover:text-red-500 transition-colors duration-500">
-                      "How This Coach Booked <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">20 Calls</span> From YouTube in <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">14 Days</span> (Case Study)"
+                    <p className="text-lg sm:text-xl xl:text-2xl font-black text-black leading-tight tracking-tight max-w-[28ch] mx-auto">
+                      "How This Coach Booked <span className="text-red-500 underline decoration-black/10 underline-offset-8">20 Calls</span> From YouTube in <span className="text-red-500 underline decoration-black/10 underline-offset-8">14 Days</span> (Case Study)"
                     </p>
                   </blockquote>
                   <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-black/[0.05]">
@@ -122,8 +122,8 @@ const Testimonial = () => {
                 {/* Second Testimonial */}
                 <div className="mt-auto">
                   <blockquote className="mb-6">
-                    <p className="text-lg sm:text-xl xl:text-2xl font-black text-black leading-tight tracking-tight max-w-[28ch] mx-auto group-hover:text-red-500 transition-colors duration-500">
-                      "In 30 days, one video brought us <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">16,000 views</span> and <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">20 warm calls</span> ready to buy."
+                    <p className="text-lg sm:text-xl xl:text-2xl font-black text-black leading-tight tracking-tight max-w-[28ch] mx-auto">
+                      "In 30 days, one video brought us <span className="text-red-500 underline decoration-black/10 underline-offset-8">16,000 views</span> and <span className="text-red-500 underline decoration-black/10 underline-offset-8">20 warm calls</span> ready to buy."
                     </p>
                   </blockquote>
                   <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-black/[0.05]">
@@ -153,8 +153,8 @@ const Testimonial = () => {
                 </div>
 
                 <blockquote className="mb-10 flex-grow">
-                  <p className="text-xl sm:text-2xl xl:text-3xl font-black text-black leading-tight tracking-tight group-hover:text-red-500 transition-colors duration-500">
-                    "Zahra went from <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">2,000 subscribers to 6,000</span> in 90 days, and had her <span className="text-red-500 group-hover:text-black transition-colors duration-500 underline decoration-black/10 underline-offset-8">biggest business month</span>, signing 8 clients."
+                  <p className="text-xl sm:text-2xl xl:text-3xl font-black text-black leading-tight tracking-tight">
+                    "Zahra went from <span className="text-red-500 underline decoration-black/10 underline-offset-8">2,000 subscribers to 6,000</span> in 90 days, and had her <span className="text-red-500 underline decoration-black/10 underline-offset-8">biggest business month</span>, signing 8 clients."
                   </p>
                 </blockquote>
 
