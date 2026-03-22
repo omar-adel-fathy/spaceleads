@@ -35,29 +35,6 @@ const Hero = () => {
     }
   };
 
-  // Reusable underline component
-  const HandwrittenUnderline = ({ delay = 1.2 }: { delay?: number }) => (
-    <svg 
-      className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-3 md:h-4 overflow-visible"
-      viewBox="0 0 300 20" 
-      fill="none" 
-      preserveAspectRatio="none"
-    >
-      <path
-        d="M5,15 Q50,5 100,12 T200,10 T295,15"
-        stroke="#ef4444"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-        style={{
-          strokeDasharray: 300,
-          strokeDashoffset: 300,
-          animation: `drawUnderline 1s ease-out ${delay}s forwards`,
-        }}
-      />
-    </svg>
-  );
 
   return (
     <section
@@ -66,9 +43,6 @@ const Hero = () => {
     >
       {/* Underline animation keyframes */}
       <style>{`
-        @keyframes drawUnderline {
-          to { stroke-dashoffset: 0; }
-        }
         @keyframes floatY {
           0%, 100% { transform: translateY(0px) rotate(-8deg); }
           50%       { transform: translateY(-12px) rotate(-8deg); }
@@ -109,7 +83,7 @@ const Hero = () => {
 
         {/* Main Headline - centered with dropping animation */}
         <div className="hero-headline-wrap space-y-4 md:space-y-6 mb-10">
-          <div className="overflow-hidden">
+          <div className="overflow-hidden mb-6 md:mb-10">
             <h1 className="drop-text drop-text-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-black leading-[1.1] tracking-tight">
               We'll Build a Done-For-You
             </h1>
@@ -126,29 +100,20 @@ const Hero = () => {
           
           <div className="overflow-visible">
             <h1 className="drop-text drop-text-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-black leading-[1.1] tracking-tight">
-              That Signs <span className="relative inline-block">
-                <span>3-5 High-Ticket Clients</span>
-                <HandwrittenUnderline delay={1.2} />
-              </span>
+              That Signs 3-5 High-Ticket Clients
             </h1>
           </div>
           
           <div className="overflow-visible py-3">
             <h1 className="drop-text drop-text-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-black leading-[1.1] tracking-tight">
-              in <span className="relative inline-block">
-                <span>90 Days</span>
-                <HandwrittenUnderline delay={1.5} />
-              </span>
+              in 90 Days
             </h1>
           </div>
 
           {/* Or You Don't Pay with hand-drawn underline */}
           <div className="overflow-visible py-4">
             <h1 className="drop-text drop-text-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-black leading-[1.1] tracking-tight">
-              <span className="relative inline-block">
-                <span>(Or You Don't Pay)</span>
-                <HandwrittenUnderline delay={2.1} />
-              </span>
+              (Or You Don't Pay)
             </h1>
           </div>
         </div>

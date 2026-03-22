@@ -90,7 +90,7 @@ const Testimonial = () => {
         <div className="w-full">
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Main Text Testimonial - Idriis Abu Haythami (Combined - Tall Card) */}
-            <div className="testimonial-card relative bg-[#FAFAFA] rounded-[2.5rem] p-8 md:p-10 xl:p-12 shadow-2xl border border-black/[0.03] overflow-hidden group lg:w-1/2">
+            <div className="testimonial-card relative bg-[#FAFAFA] rounded-[2.5rem] p-8 md:p-10 xl:p-12 shadow-2xl border border-black/[0.03] overflow-hidden lg:w-1/2">
               <div className="absolute top-0 right-0 p-8 select-none pointer-events-none opacity-[0.02]">
                 <Quote className="w-48 h-48 rotate-180" />
               </div>
@@ -134,7 +134,7 @@ const Testimonial = () => {
             </div>
 
             {/* Main Text Testimonial 2 - Zahra */}
-            <div className="testimonial-card relative bg-[#FAFAFA] rounded-[2.5rem] p-8 md:p-10 xl:p-12 shadow-2xl border border-black/[0.03] overflow-hidden group lg:w-1/2 lg:self-start">
+            <div className="testimonial-card relative bg-[#FAFAFA] rounded-[2.5rem] p-8 md:p-10 xl:p-12 shadow-2xl border border-black/[0.03] overflow-hidden lg:w-1/2 lg:self-start">
               {/* Subtle Background Text */}
               <div className="absolute top-0 right-0 p-8 select-none pointer-events-none opacity-[0.02]">
                 <Quote className="w-48 h-48 rotate-180" />
@@ -173,7 +173,7 @@ const Testimonial = () => {
             {videoTestimonials.map((video) => (
               <div 
                 key={video.id}
-                className="video-testimonial-card relative aspect-[9/16] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-black shadow-2xl group cursor-pointer border border-black/[0.05] hover:shadow-red-500/20 transition-all duration-700"
+                className="video-testimonial-card relative aspect-[9/16] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-black shadow-2xl border border-black/[0.05]"
               >
                 {/* Video container with proper scaling for 9:16 YouTube Shorts */}
                 <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
@@ -189,8 +189,6 @@ const Testimonial = () => {
                 <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
                 <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-white/5 to-transparent pointer-events-none" />
 
-                {/* Hover Glow */}
-                <div className="absolute -inset-4 bg-red-500/10 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
               </div>
             ))}
           </div>
