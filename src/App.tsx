@@ -20,7 +20,9 @@ gsap.registerPlugin(ScrollTrigger);
 function App() {
   const mainRef = useRef<HTMLDivElement>(null);
 
-  if (window.location.pathname.endsWith('/thank-you') || window.location.pathname.endsWith('/thank-you/')) {
+  // Check for thank-you page (accounting for base path /spaceleads/)
+  const pathname = window.location.pathname;
+  if (pathname.includes('/spaceleads/thank-you') || pathname.endsWith('/thank-you')) {
     return <ThankYou />;
   }
 
