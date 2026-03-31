@@ -115,7 +115,7 @@ const Testimonial = () => {
                     </p>
                   </blockquote>
                   <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-black/[0.05]">
-                    <LiteYouTube videoId="TSrTVrUZw0U" title="Idriis Abu Haythami - Case Study" />
+                    <LiteYouTube videoId="F1OCIakR9y0" title="Idriis Abu Haythami - Client Success" />
                   </div>
                 </div>
 
@@ -127,7 +127,7 @@ const Testimonial = () => {
                     </p>
                   </blockquote>
                   <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-black/[0.05]">
-                    <LiteYouTube videoId="F1OCIakR9y0" title="Idriis Abu Haythami - Client Success" />
+                    <LiteYouTube videoId="TSrTVrUZw0U" title="Idriis Abu Haythami - Case Study" />
                   </div>
                 </div>
               </div>

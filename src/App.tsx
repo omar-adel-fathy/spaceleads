@@ -12,12 +12,17 @@ import FAQ from './sections/FAQ';
 import FinalCTA from './sections/FinalCTA';
 import BookCall from './sections/BookCall';
 import Footer from './sections/Footer';
+import ThankYou from './sections/ThankYou';
 import './App.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const mainRef = useRef<HTMLDivElement>(null);
+
+  if (window.location.pathname.endsWith('/thank-you') || window.location.pathname.endsWith('/thank-you/')) {
+    return <ThankYou />;
+  }
 
   useEffect(() => {
     // Initialize scroll-triggered animations
