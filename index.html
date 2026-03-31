@@ -151,6 +151,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://www.youtube.com" />
     <link rel="dns-prefetch" href="https://i.ytimg.com" />
+
+    <!-- Restore path after GitHub Pages SPA redirect via 404.html -->
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var p = params.get('p');
+        if (p) {
+          var h = params.get('h') || '';
+          window.history.replaceState(
+            null, null,
+            '/spaceleads' + decodeURIComponent(p) + decodeURIComponent(h)
+          );
+        }
+      })();
+    </script>
 </head>
 
 <body>
