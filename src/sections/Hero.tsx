@@ -131,7 +131,7 @@ const Hero = () => {
         <div className="overflow-hidden mb-12 max-w-4xl mx-auto px-4">
           <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border border-black/5 bg-gray-100">
             <LiteYouTube 
-              videoId="hCHjJyhFbU4" 
+              videoId="X0DJ9p6q2Gk" 
               title="YouTube video player" 
             />
           </div>

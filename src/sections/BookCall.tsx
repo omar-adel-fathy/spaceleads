@@ -14,7 +14,26 @@ const BookCall = () => {
       // Animations temporarily disabled
     }, sectionRef);
 
-    return () => ctx.revert();
+    // Load Calendly script
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Add event listener for Calendly events
+    const handleCalendlyEvent = (e: MessageEvent) => {
+      if (e.data.event && e.data.event === 'calendly.event_scheduled') {
+        window.location.href = 'https://spaceleads.co/thank-you';
+      }
+    };
+
+    window.addEventListener('message', handleCalendlyEvent);
+
+    return () => {
+      ctx.revert();
+      document.body.removeChild(script);
+      window.removeEventListener('message', handleCalendlyEvent);
+    };
   }, []);
 
   return (
@@ -41,14 +60,10 @@ const BookCall = () => {
 
           {/* Calendly Embed Container */}
           <div className="relative rounded-3xl overflow-hidden bg-white shadow-2xl border border-black/5">
-            <iframe
-              src="https://calendly.com/spaceleads/freeconsultation?embed_domain=spaceleads.org&embed_type=Inline&hide_gdpr_banner=1"
-              width="100%"
-              height="700"
-              frameBorder="0"
-              title="Book a Call - Calendly"
-              className="w-full"
-              style={{ border: 'none', minHeight: '700px' }}
+            <div 
+              className="calendly-inline-widget"
+              data-url="https://calendly.com/spaceleads/freeconsultation?hide_gdpr_banner=1"
+              style={{minWidth: '320px', height: '700px'}}
             />
           </div>
         </div>

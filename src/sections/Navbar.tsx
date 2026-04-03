@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import RollRevealButton from '../components/RollRevealButton';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -69,12 +68,12 @@ const Navbar = () => {
 
         {/* CTA Button */}
         <div className="hidden lg:flex">
-          <RollRevealButton
-            defaultText="Book a call"
-            hoverText="Let's Talk"
+          <button
             onClick={() => scrollToSection('#book-call')}
-            className={`shadow-xl ${isScrolled ? 'border border-black/[0.05]' : ''}`}
-          />
+            className="bg-black text-white px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-red-500 transition-colors duration-300 shadow-xl"
+          >
+            Book a Call
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
