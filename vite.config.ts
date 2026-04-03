@@ -5,7 +5,10 @@ import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/spaceleads/',
+  // If this app is deployed to the root domain (e.g. https://spaceleadss.vercel.app),
+  // use root base path to avoid 404s on generated assets.
+  // Keep `/spaceleads/` only if you deploy under that subpath.
+  base: '/',
   plugins: [inspectAttr(), react()],
   resolve: {
     alias: {
