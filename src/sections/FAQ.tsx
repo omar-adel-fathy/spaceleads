@@ -93,6 +93,11 @@ const faqs: FAQItem[] = [
     answer:
       'Most videos are turned around in 4–6 days. That covers anything under 15 minutes from footage to final delivery.',
   },
+  {
+    question: 'How do I know this will actually work for me?',
+    answer:
+      'Because we only take clients it\'s built for. Founders. Coaches. Agency owners. People with a real offer and the ability to close — who are just missing the inbound pipeline to close more. You don\'t need to be a content creator. You need a solid offer, basic camera willingness, and one video a week. We do the rest. The discovery call exists for one reason: to make sure this is a genuine fit before either of us commits to anything.',
+  },
 ];
 
 // Split FAQs into two columns

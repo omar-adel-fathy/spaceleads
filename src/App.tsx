@@ -13,6 +13,7 @@ import FinalCTA from './sections/FinalCTA';
 import BookCall from './sections/BookCall';
 import Footer from './sections/Footer';
 import ThankYou from './sections/ThankYou';
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -51,6 +52,7 @@ function App() {
         <FinalCTA />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
