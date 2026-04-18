@@ -22,8 +22,9 @@ const BookCall = () => {
 
     // Add event listener for Calendly events
     const handleCalendlyEvent = (e: MessageEvent) => {
-      if (e.data.event && e.data.event === 'calendly.event_scheduled') {
-        window.location.href = 'https://spaceleads.co/thank-you';
+      if (e.data && e.data.event === 'calendly.event_scheduled') {
+        const basePath = window.location.pathname.startsWith('/spaceleads') ? '/spaceleads' : '';
+        window.location.href = window.location.origin + basePath + '/thank-you';
       }
     };
 

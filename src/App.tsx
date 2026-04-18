@@ -21,12 +21,6 @@ gsap.registerPlugin(ScrollTrigger);
 function App() {
   const mainRef = useRef<HTMLDivElement>(null);
 
-  // Check for thank-you page (accounting for base path /spaceleads/)
-  const pathname = window.location.pathname;
-  if (pathname.includes('/spaceleads/thank-you') || pathname.endsWith('/thank-you')) {
-    return <ThankYou />;
-  }
-
   useEffect(() => {
     // Initialize scroll-triggered animations
     const ctx = gsap.context(() => {
@@ -36,6 +30,12 @@ function App() {
 
     return () => ctx.revert();
   }, []);
+
+  // Check for thank-you page (accounting for base path /spaceleads/)
+  const pathname = window.location.pathname;
+  if (pathname.includes('/spaceleads/thank-you') || pathname.endsWith('/thank-you')) {
+    return <ThankYou />;
+  }
 
   return (
     <div ref={mainRef} className="min-h-screen bg-[#FAFAFA] text-black overflow-x-hidden">
