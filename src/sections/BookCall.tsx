@@ -9,6 +9,14 @@ const BookCall = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
+  // Build the thank-you URL for this deployment and embed it directly in the
+  // Calendly URL so it overrides whatever redirect URL is set in the dashboard,
+  // preventing the 414 "URI Too Long" error caused by Calendly appending
+  // tracking params to a misconfigured (long) dashboard redirect URL.
+  const basePath = window.location.pathname.startsWith('/spaceleads') ? '/spaceleads' : '';
+  const thankYouUrl = `${window.location.origin}${basePath}/thank-you`;
+  const calendlyEmbedUrl = `https://calendly.com/spaceleads/freeconsultation?hide_gdpr_banner=1&redirect_url=${encodeURIComponent(thankYouUrl)}`;
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Animations temporarily disabled
@@ -20,11 +28,10 @@ const BookCall = () => {
     script.async = true;
     document.body.appendChild(script);
 
-    // Add event listener for Calendly events
+    // postMessage fallback in case the redirect_url param isn't honoured
     const handleCalendlyEvent = (e: MessageEvent) => {
       if (e.data && e.data.event === 'calendly.event_scheduled') {
-        const basePath = window.location.pathname.startsWith('/spaceleads') ? '/spaceleads' : '';
-        window.location.href = window.location.origin + basePath + '/thank-you';
+        window.location.href = thankYouUrl;
       }
     };
 
@@ -61,9 +68,9 @@ const BookCall = () => {
 
           {/* Calendly Embed Container */}
           <div className="relative rounded-3xl overflow-hidden bg-white shadow-2xl border border-black/5">
-            <div 
+            <div
               className="calendly-inline-widget"
-              data-url="https://calendly.com/spaceleads/freeconsultation?hide_gdpr_banner=1"
+              data-url={calendlyEmbedUrl}
               style={{minWidth: '320px', height: '700px'}}
             />
           </div>
