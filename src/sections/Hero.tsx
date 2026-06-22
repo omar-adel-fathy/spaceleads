@@ -121,15 +121,13 @@ const Hero = () => {
 
         {/* Video Section */}
         <div className="overflow-hidden mb-12 max-w-4xl mx-auto px-4">
-          <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border border-black/5 bg-gray-100">
-            <iframe 
-              width="100%" 
-              height="100%" 
-              src="https://www.youtube.com/embed/hCHjJyhFbU4?si=x-en9kkHMyOS3BRl" 
-              title="YouTube video player" 
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerPolicy="strict-origin-when-cross-origin" 
+          <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border border-black/5 bg-gray-100">
+            <iframe
+              src="https://www.loom.com/embed/532c55eeb2874ba98fb9f620f8edad7d"
+              title="Spaceleads overview video"
+              frameBorder="0"
+              allow="fullscreen; picture-in-picture"
+              className="absolute inset-0 h-full w-full"
               allowFullScreen
             />
           </div>
